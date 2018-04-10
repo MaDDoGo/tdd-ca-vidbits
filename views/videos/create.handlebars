@@ -1,0 +1,20 @@
+<div class="add-video-title">Save a video</div>
+<form method="POST" action="/videos{{#if video}}/{{video._id}}{{/if}}">
+    {{#if error}}
+    <div>
+        <span>{{error}}</span>
+    </div>
+    {{/if}}
+    <label class="form-label" for="video-url">URL</label>
+    <input id="video-url-input" name="video-url" value="{{ video.url }}" />
+    <br />
+    <label class="form-label" for="video-title">Title</label>
+    <input id="video-title-input" name="video-title" value="{{ video.title }}"></input>
+    <br />
+    <label class="form-label" for="video-description">Description</label>
+    <textarea id="video-description-input" name="video-description">{{ video.description }}</textarea>
+    <br />
+    <button class="input-button" id="submit-button" type="submit">
+        <p>Save a video</p>
+    </button>
+</form>

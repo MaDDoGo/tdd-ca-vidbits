@@ -1,0 +1,35 @@
+<div class="contents-container">
+    <div class="video-card">
+        <div id="video-title" class="video-title">
+            <h1>{{video.title}}</h1>
+        </div>
+        <div class="">
+            <a id="update-button" class="input-button" href="/videos/{{video._id}}/edit" title="update" style="padding: 15px;">
+                Update
+            </a>
+            <br />
+            <form id="delete-video" class="delete-form button delete" action="/videos/{{video._id}}/delete" method="POST" style="padding: 15px;">
+                <a id="delete-button" class="input-button" href="/videos/{{video._id}}/delete" title="delete" style="padding: 15px;">
+                    Delete
+                </a>
+            </form>
+            <br />
+        </div>
+        <div id="video-player">
+            <iframe class="video-player" src="{{{video.url}}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div id="video-description" class="video-description">
+            <p>{{video.description}}</p>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.delete-form')
+        .forEach(function (element) {
+            element.onclick = function (e) {
+                e.preventDefault();
+                element.submit()
+            };
+        });
+</script>

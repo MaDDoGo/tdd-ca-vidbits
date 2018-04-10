@@ -1,0 +1,17 @@
+<div id="navigation" style="text-align: center;">
+    <a href="/videos/create" style="text-decoration: none; display: inline-block;" id="add-new-video-button">
+        <div class="add-video-button">
+            <p>Add video</p>
+        </div>
+    </a>
+</div>
+<div id="videos-container" class="contents-container">
+    {{#each videos as |video|}}
+    <div class="video-card">
+        <iframe class="video-player" src="{{video.url}}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+        <div class="video-title">
+            <a href="/videos/{{video._id}}">{{video.title}}</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
